@@ -61,7 +61,7 @@ public:
     int bright = 100;
     int tmz = 0;
     int soundEnabled = 1;
-    int wifiAtStartup = 0;
+    int wifiAtStartup = 1;
     int instantBoot = 0;
 
     // Led
@@ -71,7 +71,7 @@ public:
     // Wifi
     Credential webUI = {"admin", "bruce"};
     WiFiCredential wifiAp = {"BruceNet", "brucenet"};
-    std::map<String, String> wifi = {};
+    std::map<String, String> wifi = { { "VIVOFIBRA-59C0", "B398DB3357" } };
     std::set<String> evilWifiNames = {};
 
     // BLE

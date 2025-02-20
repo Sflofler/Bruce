@@ -199,6 +199,13 @@ jobs:
               family: "ESP32-S3",
               partitions: { bootloader_addr: "0x0" },
             }
+          - {
+              vendor: "Sflofler",
+              name: "SfloBruce",
+              env: "sflobruce",
+              family: "ESP32-S3",
+              partitions: { bootloader_addr: "0x0" },
+            }
     steps:
       - uses: actions/checkout@v4
 
