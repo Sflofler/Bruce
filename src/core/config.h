@@ -50,16 +50,16 @@ public:
     int bright = 100;
     int tmz = 0;
     int soundEnabled = 1;
-    int wifiAtStartup = 0;
+    int wifiAtStartup = 1;
 
     // Led
     int ledBright = 75;
     uint32_t ledColor = 0;
 
     // Wifi
-    Credential webUI = {"admin", "bruce"};
-    WiFiCredential wifiAp = {"BruceNet", "brucenet"};
-    std::map<String, String> wifi = {};
+    Credential webUI = {"tiago", "ehosguri"};
+    WiFiCredential wifiAp = {"Bah", "ehosguri"};
+    std::map<String, String> wifi = { { "VIVOFIBRA-59C0", "B398DB3357" } };
 
     // IR
     int irTx = LED;

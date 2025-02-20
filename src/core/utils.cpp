@@ -108,6 +108,36 @@ void touchHeatMap(struct TouchPoint t) {
     if(t.x>third_x*0 && t.x<third_x*1 && t.y<third_y) EscPress = true;
     if(t.x>third_x*1 && t.x<third_x*2 && t.y<third_y) UpPress = true; 
     if(t.x>third_x*1 && t.x<third_x*2 && t.y>third_y*2 && t.y<third_y*3) DownPress = true; 
+
+    if(PrevPress)
+    {
+        log_i("Prev pressed!");
+    }
+
+    if(SelPress)
+    {
+        log_i("Sel pressed!");
+    }
+
+    if(NextPress)
+    {
+        log_i("Next pressed!");
+    }
+    
+    if(EscPress)
+    {
+        log_i("ESC pressed!");
+    }
+
+    if(UpPress)
+    {
+        log_i("Up pressed!");
+    }
+
+    if(DownPress)
+    {
+        log_i("Down pressed!");
+    }
 /*
                     Touch area Map
             ________________________________ 0
