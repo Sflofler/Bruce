@@ -57,7 +57,14 @@
         "iomanip": "cpp",
         "chrono": "cpp",
         "ratio": "cpp",
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "tft_espi_esp32_s3.c": "cpp",
+        "codecvt": "cpp",
+        "condition_variable": "cpp",
+        "csignal": "cpp",
+        "future": "cpp",
+        "mutex": "cpp",
+        "thread": "cpp"
     },
     "githubPullRequests.ignoredPullRequestBranches": [
         "main"
