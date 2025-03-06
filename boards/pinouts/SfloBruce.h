@@ -50,6 +50,7 @@ static const uint8_t ADC1 = 7;
 static const uint8_t ADC2 = 8;
 
 #define PN532DEBUG
+//#define MIFAREDEBUG
 
 #define FM_RSTPIN	    40
 #define PIN_CLK	        43
@@ -116,8 +117,8 @@ static const uint8_t ADC2 = 8;
 #define TFT_HEIGHT	        320
 #define TFT_BACKLIGHT_ON	1
 #define TFT_BL	            17
-#define TFT_RST	            8
-#define TFT_DC	            9
+#define TFT_RST	            15
+#define TFT_DC	            14
 #define TFT_MOSI	        SPI_MOSI_PIN
 #define TFT_MISO            SPI_MISO_PIN
 #define TFT_SCLK	        SPI_SCK_PIN
@@ -138,8 +139,8 @@ static const uint8_t ADC2 = 8;
 // #define SDCARD_MISO	39
 // #define SDCARD_MOSI	14
 
-#define GROVE_SDA	15
-#define GROVE_SCL	14
+#define GROVE_SDA	8
+#define GROVE_SCL	9
 
 #define SPI_SCK_PIN	    12
 #define SPI_MOSI_PIN	11
