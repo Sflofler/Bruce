@@ -3,7 +3,7 @@
 
 #define ISR_PREFIX IRAM_ATTR
 #define MSEC_THRESHOLD 3
-#define SPI_SETTING SPISettings(500000, MSBFIRST, SPI_MODE0)
+#define SPI_SETTING SPISettings(2000000, MSBFIRST, SPI_MODE0)
 
 static SFLOBRUCE_Touch *isrPinptr;
 

@@ -16,12 +16,11 @@ SPIClass mySPI;
 ***************************************************************************************/
 void _setup_gpio()
 {
-    // pinMode(TOUCH_CS, OUTPUT);
-    // attachInterrupt(TOUCH_IRQ, _IH_touch, FALLING);
+    pinMode(TOUCH_CS, OUTPUT);
+    digitalWrite(TOUCH_CS, HIGH);
 
-    if (!touch.begin(&tft.getSPIinstance()))
+    if (!touch.begin())
     {
-        Serial.println("Touch IC not Started");
         log_i("Touch IC not Started");
     }
     else
@@ -110,7 +109,7 @@ void InputHandler(void)
                 t.y = (tftHeight + 20) - tmp;
             }
 
-            //log_i("Touch Pressed on x=%d, y=%d\n", t.x, t.y);
+            log_i("Touch Pressed on x=%d, y=%d\n", t.x, t.y);
 
             if (!wakeUpScreen())
             {

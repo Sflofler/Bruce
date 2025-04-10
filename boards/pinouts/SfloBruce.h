@@ -81,15 +81,16 @@ static const uint8_t ADC2 = 8;
 //#define RF_TX_PINS	'{{"M5 RF433T", GROVE_SDA}, {"Pin 1", 1}, {"Pin 2", 2}}'
 //#define RF_RX_PINS	'{{"M5 FR433R", GROVE_SCL}, {"Pin 1", 1}, {"Pin 2", 2}}'
 
-#define CC1101_GDO0_PIN	9
+#define USE_CC1101_VIA_SPI
+#define CC1101_GDO0_PIN	18
 #define CC1101_SS_PIN	10
 #define CC1101_MOSI_PIN	SPI_MOSI_PIN
 #define CC1101_SCK_PIN	SPI_SCK_PIN
 #define CC1101_MISO_PIN	SPI_MISO_PIN
 
-#define USE_NRF24_VIA_SPI 1
+#define USE_NRF24_VIA_SPI
 #define NRF24_CE_PIN	6
-#define NRF24_SS_PIN	7  
+#define NRF24_SS_PIN	7
 #define NRF24_MOSI_PIN	SPI_MOSI_PIN
 #define NRF24_SCK_PIN	SPI_SCK_PIN
 #define NRF24_MISO_PIN	SPI_MISO_PIN
@@ -108,7 +109,7 @@ static const uint8_t ADC2 = 8;
 #define USE_HSPI_PORT	    1
 
 // Display Setup
-#define USE_TFT_eSPI_TOUCH
+//#define USE_TFT_eSPI_TOUCH
 #define ILI9341_2_DRIVER    1
 
 // Display Settings
