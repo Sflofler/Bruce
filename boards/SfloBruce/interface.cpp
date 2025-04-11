@@ -1,6 +1,6 @@
 #include "interface.h"
-#include "core/powerSave.h"
 #include "SfloBruce_Touchscreen.h"
+#include "core/powerSave.h"
 #include "core/utils.h"
 
 #define SFLOBRUCE_DISPLAY_HOR_RES_MAX 320
@@ -14,17 +14,13 @@ SPIClass mySPI;
 ** Location: main.cpp
 ** Description:   initial setup for the device
 ***************************************************************************************/
-void _setup_gpio()
-{
+void _setup_gpio() {
     pinMode(TOUCH_CS, OUTPUT);
     digitalWrite(TOUCH_CS, HIGH);
 
-    if (!touch.begin())
-    {
+    if (!touch.begin()) {
         log_i("Touch IC not Started");
-    }
-    else
-    {
+    } else {
         log_i("Touch IC Started");
     }
 }
@@ -34,8 +30,7 @@ void _setup_gpio()
 ** Location: main.cpp
 ** Description:   second stage gpio setup to make a few functions work
 ***************************************************************************************/
-void _post_setup_gpio()
-{
+void _post_setup_gpio() {
     pinMode(TFT_BL, OUTPUT);
     ledcSetup(0, 500, 8);
     ledcAttachPin(TFT_BL, 0);
@@ -54,21 +49,14 @@ int getBattery() { return 0; }
 ** location: settings.cpp
 ** set brightness value
 **********************************************************************/
-void _setBrightness(uint8_t brightval)
-{
+void _setBrightness(uint8_t brightval) {
     int dutyCycle;
-    if (brightval == 100)
-        dutyCycle = 255;
-    else if (brightval == 75)
-        dutyCycle = 130;
-    else if (brightval == 50)
-        dutyCycle = 70;
-    else if (brightval == 25)
-        dutyCycle = 20;
-    else if (brightval == 0)
-        dutyCycle = 0;
-    else
-        dutyCycle = ((brightval * 255) / 100);
+    if (brightval == 100) dutyCycle = 255;
+    else if (brightval == 75) dutyCycle = 130;
+    else if (brightval == 50) dutyCycle = 70;
+    else if (brightval == 25) dutyCycle = 20;
+    else if (brightval == 0) dutyCycle = 0;
+    else dutyCycle = ((brightval * 255) / 100);
 
     log_i("dutyCycle for bright 0-255: %d", dutyCycle);
     ledcWrite(0, dutyCycle); // Channel 0
@@ -78,45 +66,36 @@ void _setBrightness(uint8_t brightval)
 ** Function: InputHandler
 ** Handles the variables PrevPress, NextPress, SelPress, AnyKeyPress and EscPress
 **********************************************************************/
-void InputHandler(void)
-{
+void InputHandler(void) {
     static long tmp = 0;
 
-    if (millis() - tmp > 200)
-    {
+    if (millis() - tmp > 200) {
         checkPowerSaveTime();
-        
-        if (touch.touched())
-        {
+
+        if (touch.touched()) {
             auto t = touch.getPointScaled();
             t = touch.getPointScaled();
 
-            if (bruceConfig.rotation == 3)
-            {
+            if (bruceConfig.rotation == 3) {
                 t.y = (tftHeight + 20) - t.y;
                 t.x = tftWidth - t.x;
             }
-            if (bruceConfig.rotation == 0)
-            {
+            if (bruceConfig.rotation == 0) {
                 int tmp = t.x;
                 t.x = tftWidth - t.y;
                 t.y = tmp;
             }
-            if (bruceConfig.rotation == 2)
-            {
+            if (bruceConfig.rotation == 2) {
                 int tmp = t.x;
                 t.x = t.y;
                 t.y = (tftHeight + 20) - tmp;
             }
 
-            log_i("Touch Pressed on x=%d, y=%d\n", t.x, t.y);
+            // log_i("Touch Pressed on x=%d, y=%d\n", t.x, t.y);
 
-            if (!wakeUpScreen())
-            {
+            if (!wakeUpScreen()) {
                 AnyKeyPress = true;
-            }
-            else
-            {
+            } else {
                 goto END;
             }
 
@@ -129,7 +108,7 @@ void InputHandler(void)
         }
     }
 
-    END:
+END:
     delay(0);
 }
 
